@@ -12,7 +12,7 @@ import java.io.Serializable;
 //to be sent across data streams.
 
 public class Person implements Serializable {
-
+    private static final long serialVersionUID = 1234567L;
     private String name;
     private String email;
 
