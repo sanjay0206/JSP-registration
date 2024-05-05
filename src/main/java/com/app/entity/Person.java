@@ -1,7 +1,8 @@
+package com.app.entity;
 
 import java.io.Serializable;
 
-//This is just a simple java class that represents a Person but it follows the JavaBean specification.
+//This is just a simple java class that represents a com.app.entity.Person but it follows the JavaBean specification.
 
 //1. Implements Serializable
 //2. No arg constructor
