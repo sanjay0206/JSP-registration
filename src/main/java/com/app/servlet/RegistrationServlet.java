@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "com.app.servlet.RegistrationServlet", urlPatterns = "/register")
 public class RegistrationServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String email = request.getParameter("email");
         String name = request.getParameter("name");
@@ -20,6 +20,7 @@ public class RegistrationServlet extends HttpServlet {
         String confirmPassword = request.getParameter("confirmPassword");
 
         if (email.isEmpty() || name.isEmpty() || Integer.parseInt(age) <= 0 || password.isEmpty() || confirmPassword.isEmpty()) {
+            System.out.println("coming here");
             request.setAttribute("error", "You are missing of the inputs");
             doGet(request, response);
         } else {
@@ -35,8 +36,11 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String error = (String) request.getAttribute("error");
+        if (error != null && !error.isEmpty()) {
+            request.setAttribute("error", error);
+        }
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-
     }
+
 }
