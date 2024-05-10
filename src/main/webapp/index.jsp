@@ -9,7 +9,7 @@
 
 <p>${error}</p>
 
-<form method="post"     action="${pageContext.request.contextPath}/register">
+<form method="post" action="${pageContext.request.contextPath}/register">
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email"><br><br>
